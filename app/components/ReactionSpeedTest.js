@@ -12,7 +12,6 @@ const ReactionSpeedTest = () => {
   const [fadeOut, setFadeOut] = useState(false);
   const [testType, setTestType] = useState('reaction');
   const [targetPosition, setTargetPosition] = useState({ x: 0, y: 0 });
-  const [score, setScore] = useState(0);
   const [remainingAttempts, setRemainingAttempts] = useState(10);
   const [scores, setScores] = useState([]);
   const [progress, setProgress] = useState(100);
@@ -20,7 +19,6 @@ const ReactionSpeedTest = () => {
   const [currentScore, setCurrentScore] = useState(null);  // 현재 클릭의 점수
   const [averageScore, setAverageScore] = useState(null);  // 평균 점수
 
-  const canvasRef = useRef(null);
   const startTimeRef = useRef(null);
 
   useEffect(() => {
