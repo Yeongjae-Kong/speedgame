@@ -57,11 +57,11 @@ const ReactionSpeedTest = () => {
         setSuccess(true);
         const averageReactionTime =
           updatedClickTimes.reduce((sum, time) => sum + time, 0) / updatedClickTimes.length;
-        alert(`성공!`);
+        alert(`Success! Your average reaction time was ${averageReactionTime.toFixed(2)}ms.`);
       }
     } else {
       // 잘못된 타일 클릭 시 실패 메시지 및 새로고침
-      alert('잘못된 타일을 선택했습니다.');
+      alert('Failed! Try again.');
       window.location.reload();
     }
   };
@@ -82,7 +82,7 @@ const ReactionSpeedTest = () => {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-8"
           onClick={handleStart}
         >
-          START
+          Start
         </button>
       )}
 
@@ -92,7 +92,7 @@ const ReactionSpeedTest = () => {
           <div
             key={index}
             className={`w-20 h-20 flex items-center justify-center cursor-pointer
-              ${tile ? 'bg-gray-100' : activeIndex === index ? 'bg-red-500 text-white' : 'bg-blue-300'}
+              ${tile ? 'bg-gray-100' : activeIndex === index ? 'bg-red-500 text-white' : 'bg-gray-300'}
             `}
             onClick={() => !tile && handleTileClick(index)} // 이미 클릭된 타일 클릭 비활성화
           >
@@ -104,14 +104,14 @@ const ReactionSpeedTest = () => {
       {/* 클릭 반응 속도 표시 */}
       {latestClickTime && (
         <div className="mt-8">
-          <p>반응속도: {latestClickTime.toFixed(2)}ms</p>
+          <p>Last reaction time: {latestClickTime.toFixed(2)}ms</p>
         </div>
       )}
 
       {/* 성공 시 평균 반응 속도 및 홈으로 돌아가기 버튼 */}
       {success && (
         <div className="mt-8 flex flex-col items-center">
-          <p>당신의 평균 반응속도는 {(clickTimes.reduce((sum, time) => sum + time, 0) / clickTimes.length).toFixed(2)}ms입니다.</p>
+          <p>Your average reaction time was {(clickTimes.reduce((sum, time) => sum + time, 0) / clickTimes.length).toFixed(2)}ms.</p>
           <button
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4"
             onClick={handleGoHome}
