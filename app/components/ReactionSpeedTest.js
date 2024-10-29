@@ -57,11 +57,11 @@ const ReactionSpeedTest = () => {
         setSuccess(true);
         const averageReactionTime =
           updatedClickTimes.reduce((sum, time) => sum + time, 0) / updatedClickTimes.length;
-        alert(`Success! Your average reaction time was ${averageReactionTime.toFixed(2)}ms.`);
+        alert(`성공!`);
       }
     } else {
       // 잘못된 타일 클릭 시 실패 메시지 및 새로고침
-      alert('Failed! Try again.');
+      alert('잘못된 타일을 선택했습니다.');
       window.location.reload();
     }
   };
@@ -82,7 +82,7 @@ const ReactionSpeedTest = () => {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-8"
           onClick={handleStart}
         >
-          Start
+          START
         </button>
       )}
 
@@ -104,14 +104,14 @@ const ReactionSpeedTest = () => {
       {/* 클릭 반응 속도 표시 */}
       {latestClickTime && (
         <div className="mt-8">
-          <p>Last reaction time: {latestClickTime.toFixed(2)}ms</p>
+          <p>반응속도: {latestClickTime.toFixed(2)}ms</p>
         </div>
       )}
 
       {/* 성공 시 평균 반응 속도 및 홈으로 돌아가기 버튼 */}
       {success && (
         <div className="mt-8 flex flex-col items-center">
-          <p>Your average reaction time was {(clickTimes.reduce((sum, time) => sum + time, 0) / clickTimes.length).toFixed(2)}ms.</p>
+          <p>당신의 평균 반응속도는 {(clickTimes.reduce((sum, time) => sum + time, 0) / clickTimes.length).toFixed(2)}ms입니다.</p>
           <button
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4"
             onClick={handleGoHome}
