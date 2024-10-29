@@ -92,7 +92,7 @@ const ReactionSpeedTest = () => {
           <div
             key={index}
             className={`w-20 h-20 flex items-center justify-center cursor-pointer
-              ${tile ? 'bg-gray-100' : activeIndex === index ? 'bg-red-500 text-white' : 'bg-gray-300'}
+              ${tile ? 'bg-gray-100' : activeIndex === index ? 'bg-red-500 text-white' : 'bg-blue-300'}
             `}
             onClick={() => !tile && handleTileClick(index)} // 이미 클릭된 타일 클릭 비활성화
           >
