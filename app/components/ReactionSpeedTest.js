@@ -93,7 +93,6 @@ const ReactionSpeedTest = () => {
     setSuccess(false);
     setClickTimes([]);
     setLatestClickTime(null);
-    setScore(0);
     setScores([]);
     setCurrentScore(null);
     setAverageScore(null);
